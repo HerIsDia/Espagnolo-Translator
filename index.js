@@ -1,4 +1,13 @@
 "use strict";
+const copy = document.querySelector('.copy');
+copy.addEventListener('click', () => {
+    navigator.clipboard.writeText(result.innerText).then(() => {
+        copy.innerText = 'Copié avec succès !';
+        setTimeout(() => {
+            copy.innerText = 'Copier le résultat';
+        }, 2000);
+    });
+});
 const translator = document.querySelector('#translator');
 const result = document.querySelector('.result');
 translator.addEventListener('keyup', () => {
