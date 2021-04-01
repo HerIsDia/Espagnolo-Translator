@@ -11,7 +11,7 @@ translator.addEventListener('keyup', () => {
   const words = translator.value.split(/[^A-zÀ-ú]/g);
   const nonWords = translator.value.replace(/[A-zÀ-ú]/g, '').split('');
 
-  console.log(words, nonWords);
+  let resText: string = '';
 
   words.forEach((word, i) => {
     if (word !== '') {
@@ -42,9 +42,11 @@ translator.addEventListener('keyup', () => {
           word += 'o';
           break;
       }
-      result.innerText += word + (nonWords[i] != undefined ? nonWords[i] : '');
+
+      resText += word + (nonWords[i] !== undefined ? nonWords[i] : ' ');
     } else {
-      result.innerText += nonWords[i] != undefined ? nonWords[i] : '';
+      resText += nonWords[i] !== undefined ? nonWords[i] : ' ';
     }
+    result.innerText = resText as string;
   });
 });
