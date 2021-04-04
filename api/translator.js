@@ -57,7 +57,7 @@ export default (req, res) => {
       }
     });
     res.status(200).json({
-      result: resText,
+      result: resText.slice(0, -1),
     });
   } catch (error) {
     return res.status(400).json({ error: 'No text found' });
